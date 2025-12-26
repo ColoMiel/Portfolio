@@ -4,25 +4,33 @@
     <meta charset="UTF-8">
     <title>Portfolio - Hatim Ouaadi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="icon" type="image/jpg" href="/image/icon/favicon.jpg">
-    <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/portfolio.css">
 </head>
 <body>
     <nav>
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="about.html">À propos</a></li>
-            <li><a href="project.html">Projets</a></li>
-            <li><a href="contact.html">Contact</a></li>
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="/image/icon/logo.png" alt="Icon">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li class="links"><a href="about.html">À propos</a></li>
+            <li class="links"><a href="project.html">Projets</a></li>
+            <li class="links"><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
-    <main>
-        <h1>Portfolio de Hatim Ouaadi</h1>
-        <p>
-            Je suis Hatim Ouaadi, un jeune développeur de 19 ans originaire de Marseille, en France. Passionné par les technologies informatique je crée des solutions personnalisées qui aident les entreprises à se développer et à réussir en ligne
-        </p>
-    </main>
+    <header class="hero">
+        <div class="hero-inner">
+            <h1>Bienvenue sur mon Portfolio</h1>
+            <p class="lead">
+                <span class="first-line">Je suis <span class="accent">Hatim Ouaadi</span>, un jeune développeur originaire de Marseille, en France.</span> <br> Passionné par les technologies informatiques et de jeu vidéo je souhaiterais un jour pouvoir creer mon jeu à succès.
+            </p>
+            <div class="cta-group">
+                <a class="btn primary" href="project.html">Voir mes projets</a>
+                <a class="btn outline" href="contact.html">Me contacter</a>
+            </div>
+        </div>
+    </header>
 </body>
 </html>
