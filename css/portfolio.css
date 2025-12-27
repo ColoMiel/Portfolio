@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
@@ -17,14 +16,12 @@ a {
   color: inherit;
 }
 
-/* ================= BASE ================= */
 body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(180deg, #07060a 0%, #0f0b14 40%, #07060a 100%);
   color: #e6e6ea;
 }
 
-/* ================= NAV ================= */
 nav {
     display: flex;
     align-items: center;
@@ -264,10 +261,11 @@ header .content p {
 .epitech-block-div-div {
   padding: 1.5rem;
   border-radius: 12px;
-  background: linear-gradient(180deg,#0b0f1a 0%,#14122b 50%,#0f0b14 100%
-  );
+  background: linear-gradient(180deg,#0b0f1a 0%,#14122b 50%,#0f0b14 100%);
   border: 1px solid rgba(255,255,255,0.06);
   color: #ccc;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
 }
 
 .epitech-block-div-div h3 {
@@ -280,6 +278,37 @@ header .content p {
   margin-bottom: 0.75rem;
   line-height: 1.6;
 }
+
+.premier-block-image {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.premier-block-image > div {
+    padding: 0.5rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.premier-block-image > div:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(79,70,229,0.4);
+}
+
+.Python { background: #306998; }
+.C { background: #555555; }
+.C\+\+ { background: #00599C; }
+.Git { background: #F1502F; }
+.Github { background: #333333; }
+.JavaScript { background: #F7DF1E; color: #000; }
+.Shell { background: #4CAF50; }
+.Makefile { background: #f2a900; color: #000; }
 
 .project-container {
   max-width: 1220px;
@@ -295,6 +324,19 @@ header .content p {
   border-radius: 12px;
   background: linear-gradient(180deg, #111827, #07060a);
   border: 1px solid rgba(255,255,255,0.05);
+}
+
+.project-content h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.project-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ccc;
 }
 
 @media (max-width: 920px) {
