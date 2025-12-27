@@ -250,6 +250,7 @@ header .content p {
   );
   border: 1px solid rgba(124,77,255,0.18);
   box-shadow:0 25px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .epitech-block-div h2 {
@@ -266,6 +267,11 @@ header .content p {
   color: #ccc;
   display: grid;
   grid-template-columns: 3fr 1fr;
+}
+
+.epitech-block-div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(124,77,255,0.3);
 }
 
 .epitech-block-div-div h3 {
@@ -319,11 +325,39 @@ header .content p {
   gap: 2rem;
 }
 
-.project-content {
+.project-container {
+  max-width: 1220px;
+  margin: auto;
   padding: 2rem;
-  border-radius: 12px;
-  background: linear-gradient(180deg, #111827, #07060a);
-  border: 1px solid rgba(255,255,255,0.05);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.project-content {
+  padding: 0;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #1a1625, #0d0b12);
+  border: 1px solid rgba(124,77,255,0.2);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+}
+
+.project-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(124,77,255,0.3);
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(124,77,255,0.15);
+}
+
+.project-info {
+  padding: 1.5rem;
 }
 
 .project-content h3 {
@@ -334,17 +368,65 @@ header .content p {
 }
 
 .project-content p {
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.6;
-    color: #ccc;
+    color: #bfbfc6;
+    margin-bottom: 1rem;
+}
+
+.project-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.badge {
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.badge.React { background: #61DAFB; color: #000; }
+.badge.NodeJS { background: #8bf781; }
+.badge.MongoDB { background: #47A248; }
+.badge.TailwindCSS { background: #06B6D4; }
+.badge.TypeScript { background: #3178C6; }
+.badge.Sass { background: #CC6699; }
+.badge.Stripe { background: #635BFF; }
+.badge.C { background: #555555; }
+.badge.Ncurses { background: #4A5568; }
+.badge.HTML { background: #E34F26; }
+.badge.CSS { background: #1572B6; }
+.badge.Raycast { background: #68A063; }
+
+.project-btn {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  background: linear-gradient(90deg, #6d28d9, #4f46e5);
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 15px rgba(79,70,229,0.3);
+}
+
+.project-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(79,70,229,0.5);
 }
 
 @media (max-width: 920px) {
   .nav-logo { left: 1rem; }
   .nav-links { gap: 1rem; font-size: 1rem; }
   .project-container { grid-template-columns: repeat(2, 1fr); }
+  .epitech-block-div-div { grid-template-columns: 1fr; }
 }
-
 
 @media (max-width: 485px) {
   .nav-logo { display: none; }
