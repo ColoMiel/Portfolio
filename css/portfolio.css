@@ -1,27 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* ================= RESET ================= */
 * {
-    padding: 0px;
-    margin: 0px;
-    outline: none;
-    border: 0px;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 img {
-    width: 100%;
-    display: flex;
+  width: 100%;
+  display: block;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
+  color: inherit;
 }
 
+/* ================= BASE ================= */
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(180deg, #07060a 0%, #0f0b14 40%, #07060a 100%);
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #07060a 0%, #0f0b14 40%, #07060a 100%);
+  color: #e6e6ea;
 }
 
+/* ================= NAV ================= */
 nav {
     display: flex;
     align-items: center;
@@ -153,7 +156,7 @@ nav {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1220px;
   margin: auto;
   padding: 5rem 2rem;
 }
@@ -213,17 +216,95 @@ header .content p {
   padding-bottom: 2rem;
 }
 
+.project-header {
+  display: flex;
+  justify-content: center;
+}
+
+.top-content {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.top-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.top-content p {
+  max-width: 600px;
+  margin: auto;
+  color: #bfbfc6;
+}
+
+.epitech-block {
+  display: flex;
+  justify-content: center;
+  padding: 0 2rem 5rem;
+}
+
+.epitech-block-div {
+  max-width: 1000px;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 14px;
+  background: linear-gradient(180deg,rgba(124,77,255,0.12) 0%,#111827 40%,#07060a 100%
+  );
+  border: 1px solid rgba(124,77,255,0.18);
+  box-shadow:0 25px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+.epitech-block-div h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+.epitech-block-div-div {
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: linear-gradient(180deg,#0b0f1a 0%,#14122b 50%,#0f0b14 100%
+  );
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #ccc;
+}
+
+.epitech-block-div-div h3 {
+  margin-bottom: 0.5rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.epitech-block-div-div p {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.project-container {
+  max-width: 1220px;
+  margin: auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.project-content {
+  padding: 2rem;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #111827, #07060a);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
 @media (max-width: 920px) {
   .nav-logo { left: 1rem; }
-  .nav-links { gap: 1rem; font-size: 0.95rem; }
-  .hero-inner { padding: 1rem; }
-  .lead { font-size: 1rem; }
-  .cta-group { gap: 0.6rem; }
+  .nav-links { gap: 1rem; font-size: 1rem; }
+  .project-container { grid-template-columns: repeat(2, 1fr); }
 }
 
 
 @media (max-width: 485px) {
-  .nav-logo {
-        display: none;
-    }
+  .nav-logo { display: none; }
+  .project-container { grid-template-columns: 1fr; }
 }
