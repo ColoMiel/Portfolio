@@ -1,4 +1,4 @@
-const MISTRAL_API_KEY = "sUOw8Tui4icLHYkBX9YofpEgrl6riAEO";
+const MISTRAL_API_KEY = "tAsDwKTzUNUSHiQ1YMdy9r1iymbjNkNL";
 const MISTRAL_MODEL = "mistral-small-latest";
 
 const SYSTEM_CONTEXT = `
