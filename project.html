@@ -1,115 +1,133 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Portfolio - Hatim Ouaadi</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/jpg" href="image/icon/favicon.jpg">
-    <link rel="stylesheet" href="css/portfolio.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projets — Hatim Ouaadi</title>
+  <link rel="icon" href="image/icon/logo.png" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <nav>
-        <div class="nav-logo">
-            <a href="index.html">
-                <img src="image/icon/logo.png" alt="Icon">
-            </a>
-        </div>
-        <ul class="nav-links">
-            <li class="links"><a href="about.html">À propos</a></li>
-            <li class="links"><a href="project.html">Projets</a></li>
-            <li class="links"><a href="ai.html">Parler à Hatim</a></li>
-            <li class="links"><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-    <header class="project-header">
-        <div class="top-content">
-            <h1>Mes Projets</h1>
-            <p>
-            Vous découvrirez ici quelques-uns de mes projets de développement
-            réalisés récemment, ainsi que les technologies utilisées.
-            </p>
-        </div>
-    </header>
-    <section class="epitech-block">
-    <div class="epitech-block-div">
-        <h2>Mon Parcours & Compétences</h2>
-            <div class="epitech-block-div-div">
-                <div class="premier-block-texte">
-                    <h3>Étudiant à EPITECH</h3>
-                    <p>2024 – 2029</p>
-                    <p>
-                    Je suis actuellement étudiant à Epitech, une grande école
-                    d'informatique, où j’apprends les technologies les plus récentes
-                    et travaille sur des projets concrets afin de me préparer à
-                    devenir développeur logiciel.
-                    </p>
-                </div>
-                <div class="premier-block-image">
-                    <div class="Python">
-                        <a href="https://fr.wikipedia.org/wiki/Python_(langage)" target="_blank">Python</a>
-                    </div>
-                    <div class="C">
-                        <a href="https://fr.wikipedia.org/wiki/C_(langage)" target="_blank">C</a>
-                    </div>
-                    <div class="C++">
-                        <a href="https://fr.wikipedia.org/wiki/C%2B%2B" target="_blank">C++</a>
-                    </div>
-                    <div class="Git">
-                        <a href="https://fr.wikipedia.org/wiki/Git" target="_blank">Git</a>
-                    </div>
-                    <div class="Github">
-                        <a href="https://en.wikipedia.org/wiki/GitHub" target="_blank">Github</a>
-                    </div>
-                    <div class="JavaScript">
-                        <a href="https://fr.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a>
-                    </div>
-                    <div class="Shell">
-                        <a href="https://fr.wikipedia.org/wiki/Script_shell" target="_blank">Shell</a>
-                    </div>
-                    <div class="Makefile">
-                        <a href="https://fr.wikipedia.org/wiki/Make" target="_blank">Makefile</a>
-                    </div>
-                </div>
+
+  <nav class="nav">
+    <a class="nav-logo" href="index.html">
+      <img src="image/icon/logo.png" alt="Logo" />
+      <span class="nav-logo-text">Hatim<span>.</span>dev</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">// home</a></li>
+      <li><a href="about.html">// à propos</a></li>
+      <li><a href="project.html" class="active">// projets</a></li>
+      <li><a href="contact.html">// contact</a></li>
+      <li class="nav-ai"><a href="ai.html">✦ IA</a></li>
+    </ul>
+  </nav>
+
+  <main class="page">
+    <section class="section">
+      <div style="max-width: 1100px; margin: 0 auto;">
+
+        <span class="section-tag fade-up">// mes projets</span>
+        <h1 class="section-title fade-up-1">Ce que j'ai <span style="color:var(--accent)">construit</span></h1>
+        <p class="section-sub fade-up-2">
+          Projets réalisés à Epitech et en dehors — des challenges techniques
+          qui m'ont permis de progresser et d'explorer des domaines variés.
+        </p>
+
+        <div class="projects-grid fade-up-2">
+
+          <!-- Corewar -->
+          <div class="project-card">
+            <img src="image/corewar.png" alt="Corewar" />
+            <div class="project-info">
+              <h3>Corewar</h3>
+              <p>Implémentation du jeu de programmation Corewar en C avec une interface
+                 visuelle dans le terminal grâce à Ncurses.</p>
+              <div class="project-tags">
+                <span class="tag">C</span>
+                <span class="tag">Ncurses</span>
+                <span class="tag">Systèmes</span>
+              </div>
+              <a href="https://github.com/ColoMiel/Corewar" target="_blank" class="project-link">
+                Voir sur GitHub →
+              </a>
             </div>
+          </div>
+
+          <!-- Wolf3D -->
+          <div class="project-card">
+            <img src="image/wolf3D.png" alt="Wolf3D" />
+            <div class="project-info">
+              <h3>Wolf3D</h3>
+              <p>Reprise du célèbre Wolfenstein 3D avec du raycasting pur en C.
+                 Un projet gamedev qui touche aux maths et au bas niveau.</p>
+              <div class="project-tags">
+                <span class="tag">C</span>
+                <span class="tag">Raycasting</span>
+                <span class="tag">Gamedev</span>
+              </div>
+              <a href="https://github.com/ColoMiel/Wolf3D" target="_blank" class="project-link">
+                Voir sur GitHub →
+              </a>
+            </div>
+          </div>
+
+          <!-- Portfolio -->
+          <div class="project-card">
+            <img src="image/portfolio.png" alt="Portfolio Web" />
+            <div class="project-info">
+              <h3>Portfolio Web</h3>
+              <p>Ce site — un portfolio moderne et responsive, incluant un onglet
+                 IA avec chat Mistral intégré. HTML, CSS vanilla, zéro framework.</p>
+              <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JS</span>
+                <span class="tag">Mistral AI</span>
+              </div>
+              <a href="https://github.com/ColoMiel/Portfolio" target="_blank" class="project-link">
+                Voir sur GitHub →
+              </a>
+            </div>
+          </div>
+
         </div>
+
+        <!-- Skills section -->
+        <div style="margin-top: 4rem;">
+          <h2 style="font-family:var(--font-head); font-size:1.4rem; font-weight:800; margin-bottom:0.5rem;">
+            Stack &amp; Technologies
+          </h2>
+          <p style="color:var(--muted); font-size:0.83rem; margin-bottom:1.5rem;">
+            Les outils avec lesquels je travaille au quotidien.
+          </p>
+          <div class="skills-grid">
+          <span class="skill-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> Python</span>
+          <span class="skill-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> C</span>
+          <span class="skill-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> C++</span>
+          <span class="skill-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> JavaScript</span>
+          <span class="skill-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> HTML / CSS</span>
+          <span class="skill-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 8l5 4-5 4"/><line x1="13" y1="16" x2="17" y2="16"/></svg> Shell</span>
+          <span class="skill-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Makefile</span>
+          <span class="skill-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> Git / GitHub</span>
+          <span class="skill-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Ncurses</span>
+          <span class="skill-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg> Raycasting</span>
+        </div>
+        </div>
+
+      </div>
     </section>
-    <section class="project-container">
-        <div class="project-content">
-            <img class="project-image" src="image/corewar.png" alt="Corewar">
-            <div class="project-info">
-                <h3>Corewar</h3>
-                <p>Un projet en C avec une interface dans le terminal grâce à Ncurses.</p>
-                <div class="project-badges">
-                    <span class="badge C">C</span>
-                    <span class="badge Ncurses">Ncurses</span>
-                </div>
-                <a href="https://github.com/ColoMiel/Corewar" target="_blank" class="project-btn">Voir le Projet</a>
-            </div>
-        </div>
-        <div class="project-content">
-            <img class="project-image" src="image/wolf3D.png" alt="Wolf3D">
-            <div class="project-info">
-                <h3>Wolf3D</h3>
-                <p>Reprise du célèbre jeu Wolfenstein 3D en C avec du raycasting.</p>
-                <div class="project-badges">
-                    <span class="badge C">C</span>
-                    <span class="badge Raycast">Raycasting</span>
-                </div>
-                <a href="https://github.com/ColoMiel/Wolf3D" target="_blank" class="project-btn">Voir le Projet</a>
-            </div>
-        </div>
-        <div class="project-content">
-            <img class="project-image" src="image/portfolio.png" alt="Portfolio">
-            <div class="project-info">
-                <h3>Portfolio Web</h3>
-                <p>Ce site web en HTML et CSS, design moderne et responsive.</p>
-                <div class="project-badges">
-                    <span class="badge HTML">HTML</span>
-                    <span class="badge CSS">CSS</span>
-                </div>
-                <a href="https://github.com/ColoMiel/Portfolio" target="_blank" class="project-btn">Voir le Projet</a>
-            </div>
-        </div>
-    </section>
+  </main>
+
+  <footer class="footer">
+    <span class="footer-logo">Hatim Ouaadi</span>
+    <span>© 2025 — Marseille, France</span>
+    <span style="color: var(--accent3);">✦ open to opportunities</span>
+  </footer>
+
+  <script src="js/nav.js"></script>
 </body>
 </html>
