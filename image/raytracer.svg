@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="560" viewBox="0 0 740 560" font-family="'Space Mono', monospace">
+  <defs>
+    <linearGradient id="rt-win" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#16162a"/>
+      <stop offset="1" stop-color="#0e0e18"/>
+    </linearGradient>
+    <linearGradient id="rt-bar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#222240"/>
+      <stop offset="1" stop-color="#1a1a30"/>
+    </linearGradient>
+    <radialGradient id="rt-sky" cx="50%" cy="20%" r="90%">
+      <stop offset="0" stop-color="#1b1b33"/>
+      <stop offset="1" stop-color="#08080f"/>
+    </radialGradient>
+    <radialGradient id="rt-s1" cx="35%" cy="30%" r="75%">
+      <stop offset="0" stop-color="#b9aeff"/>
+      <stop offset="45%" stop-color="#7c6aff"/>
+      <stop offset="100%" stop-color="#241f4d"/>
+    </radialGradient>
+    <radialGradient id="rt-s2" cx="35%" cy="30%" r="75%">
+      <stop offset="0" stop-color="#ffb8c9"/>
+      <stop offset="45%" stop-color="#ff6a8e"/>
+      <stop offset="100%" stop-color="#3d1f2b"/>
+    </radialGradient>
+    <radialGradient id="rt-s3" cx="35%" cy="30%" r="75%">
+      <stop offset="0" stop-color="#b6ffec"/>
+      <stop offset="45%" stop-color="#6affd4"/>
+      <stop offset="100%" stop-color="#1c3b34"/>
+    </radialGradient>
+    <linearGradient id="rt-floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#14142400"/>
+      <stop offset="1" stop-color="#0a0a12"/>
+    </linearGradient>
+    <clipPath id="rt-screen"><rect x="16" y="65" width="708" height="479"/></clipPath>
+  </defs>
+
+  <rect x="8" y="8" width="724" height="544" rx="16" fill="url(#rt-win)" stroke="#2a2a45" stroke-width="1.5"/>
+
+  <!-- title bar -->
+  <rect x="8" y="8" width="724" height="57" rx="16" fill="url(#rt-bar)"/>
+  <rect x="8" y="40" width="724" height="25" fill="#1a1a30"/>
+  <circle cx="36" cy="37" r="7" fill="#ff5f57"/>
+  <circle cx="60" cy="37" r="7" fill="#febc2e"/>
+  <circle cx="84" cy="37" r="7" fill="#28c840"/>
+  <text x="120" y="43" fill="#8a8ab0" font-size="17" font-weight="700">Raytracer</text>
+
+  <g clip-path="url(#rt-screen)">
+    <rect x="16" y="65" width="708" height="479" fill="url(#rt-sky)"/>
+
+    <!-- terminal lines -->
+    <text x="46" y="112" font-size="15" fill="#7c6aff">$ <tspan fill="#e8e8f0">./raytracer scene.yml -o render.ppm</tspan></text>
+    <text x="46" y="140" font-size="15" fill="#6affd4">Building BVH</text><text x="170" y="140" font-size="15" fill="#6b6b8a">... 8192 triangles</text>
+    <text x="46" y="164" font-size="15" fill="#6b6b8a">Samples 256/px &#8226; max depth 8 &#8226; 8 threads</text>
+
+    <!-- rendered scene -->
+    <ellipse cx="380" cy="392" rx="300" ry="66" fill="#101020"/>
+    <!-- reflections on floor -->
+    <ellipse cx="296" cy="386" rx="70" ry="15" fill="#7c6aff" opacity="0.16"/>
+    <ellipse cx="466" cy="392" rx="54" ry="12" fill="#ff6a8e" opacity="0.16"/>
+    <ellipse cx="390" cy="396" rx="32" ry="8" fill="#6affd4" opacity="0.16"/>
+
+    <circle cx="296" cy="312" r="72" fill="url(#rt-s1)"/>
+    <circle cx="276" cy="290" r="13" fill="#ffffff" opacity="0.85"/>
+    <circle cx="466" cy="330" r="54" fill="url(#rt-s2)"/>
+    <circle cx="451" cy="313" r="9" fill="#ffffff" opacity="0.8"/>
+    <circle cx="390" cy="352" r="33" fill="url(#rt-s3)"/>
+    <circle cx="380" cy="341" r="6" fill="#ffffff" opacity="0.8"/>
+
+    <!-- light rays -->
+    <line x1="120" y1="150" x2="276" y2="284" stroke="#7c6aff" stroke-width="1" opacity="0.35"/>
+    <line x1="150" y1="140" x2="449" y2="311" stroke="#6affd4" stroke-width="1" opacity="0.25"/>
+
+    <rect x="16" y="404" width="708" height="140" fill="url(#rt-floor)"/>
+
+    <!-- progress bar -->
+    <text x="46" y="486" font-size="14" fill="#6b6b8a">rendering</text>
+    <rect x="46" y="498" width="620" height="14" rx="7" fill="#1c1c30" stroke="#2a2a45"/>
+    <rect x="46" y="498" width="430" height="14" rx="7" fill="#7c6aff"/>
+    <text x="676" y="510" font-size="13" fill="#6affd4" text-anchor="end">69%</text>
+  </g>
+</svg>

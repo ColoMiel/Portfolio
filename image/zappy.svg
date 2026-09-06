@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="560" viewBox="0 0 740 560" font-family="'Space Mono', monospace">
+  <defs>
+    <linearGradient id="zp-win" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#16162a"/>
+      <stop offset="1" stop-color="#0e0e18"/>
+    </linearGradient>
+    <linearGradient id="zp-bar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#222240"/>
+      <stop offset="1" stop-color="#1a1a30"/>
+    </linearGradient>
+    <radialGradient id="zp-bg" cx="50%" cy="30%" r="90%">
+      <stop offset="0" stop-color="#1b1b33"/>
+      <stop offset="1" stop-color="#08080f"/>
+    </radialGradient>
+    <linearGradient id="zp-tile" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#20203a"/>
+      <stop offset="1" stop-color="#161628"/>
+    </linearGradient>
+    <clipPath id="zp-screen"><rect x="16" y="65" width="708" height="479"/></clipPath>
+  </defs>
+
+  <rect x="8" y="8" width="724" height="544" rx="16" fill="url(#zp-win)" stroke="#2a2a45" stroke-width="1.5"/>
+
+  <!-- title bar -->
+  <rect x="8" y="8" width="724" height="57" rx="16" fill="url(#zp-bar)"/>
+  <rect x="8" y="40" width="724" height="25" fill="#1a1a30"/>
+  <circle cx="36" cy="37" r="7" fill="#ff5f57"/>
+  <circle cx="60" cy="37" r="7" fill="#febc2e"/>
+  <circle cx="84" cy="37" r="7" fill="#28c840"/>
+  <text x="120" y="43" fill="#8a8ab0" font-size="17" font-weight="700">Zappy</text>
+
+  <g clip-path="url(#zp-screen)">
+    <rect x="16" y="65" width="708" height="479" fill="url(#zp-bg)"/>
+
+    <!-- terminal lines -->
+    <text x="46" y="112" font-size="15" fill="#7c6aff">$ <tspan fill="#e8e8f0">./zappy_server -p 4242 -x 12 -y 12 -c 6 -n team1 team2</tspan></text>
+    <text x="46" y="136" font-size="15" fill="#6affd4">[srv] </text><text x="98" y="136" font-size="15" fill="#6b6b8a">world 12&#215;12 &#8226; GUI client attached &#8226; 2 teams</text>
+
+    <!-- isometric tile grid -->
+    <g transform="translate(370 300)">
+      <g stroke="#33335a" stroke-width="1">
+        <!-- draw 6x6 iso grid -->
+        <g fill="url(#zp-tile)">
+          <!-- row generation via explicit diamonds -->
+        </g>
+      </g>
+      <!-- iso diamonds -->
+      <g>
+        <!-- base grid: 6 cols x 6 rows, tile w=54 h=27 -->
+        <g fill="url(#zp-tile)" stroke="#3a3a63" stroke-width="1">
+          <!-- We'll place tiles: for i in 0..5, j in 0..5 : x=(i-j)*27 ; y=(i+j)*13.5 - 90 -->
+          <polygon points="0,-90 27,-76.5 0,-63 -27,-76.5"/>
+          <polygon points="27,-76.5 54,-63 27,-49.5 0,-63"/>
+          <polygon points="54,-63 81,-49.5 54,-36 27,-49.5"/>
+          <polygon points="81,-49.5 108,-36 81,-22.5 54,-36"/>
+          <polygon points="108,-36 135,-22.5 108,-9 81,-22.5"/>
+          <polygon points="135,-22.5 162,-9 135,4.5 108,-9"/>
+
+          <polygon points="-27,-76.5 0,-63 -27,-49.5 -54,-63"/>
+          <polygon points="0,-63 27,-49.5 0,-36 -27,-49.5"/>
+          <polygon points="27,-49.5 54,-36 27,-22.5 0,-36"/>
+          <polygon points="54,-36 81,-22.5 54,-9 27,-22.5"/>
+          <polygon points="81,-22.5 108,-9 81,4.5 54,-9"/>
+          <polygon points="108,-9 135,4.5 108,18 81,4.5"/>
+
+          <polygon points="-54,-63 -27,-49.5 -54,-36 -81,-49.5"/>
+          <polygon points="-27,-49.5 0,-36 -27,-22.5 -54,-36"/>
+          <polygon points="0,-36 27,-22.5 0,-9 -27,-22.5"/>
+          <polygon points="27,-22.5 54,-9 27,4.5 0,-9"/>
+          <polygon points="54,-9 81,4.5 54,18 27,4.5"/>
+          <polygon points="81,4.5 108,18 81,31.5 54,18"/>
+
+          <polygon points="-81,-49.5 -54,-36 -81,-22.5 -108,-36"/>
+          <polygon points="-54,-36 -27,-22.5 -54,-9 -81,-22.5"/>
+          <polygon points="-27,-22.5 0,-9 -27,4.5 -54,-9"/>
+          <polygon points="0,-9 27,4.5 0,18 -27,4.5"/>
+          <polygon points="27,4.5 54,18 27,31.5 0,18"/>
+          <polygon points="54,18 81,31.5 54,45 27,31.5"/>
+
+          <polygon points="-108,-36 -81,-22.5 -108,-9 -135,-22.5"/>
+          <polygon points="-81,-22.5 -54,-9 -81,4.5 -108,-9"/>
+          <polygon points="-54,-9 -27,4.5 -54,18 -81,4.5"/>
+          <polygon points="-27,4.5 0,18 -27,31.5 -54,18"/>
+          <polygon points="0,18 27,31.5 0,45 -27,31.5"/>
+          <polygon points="27,31.5 54,45 27,58.5 0,45"/>
+
+          <polygon points="-135,-22.5 -108,-9 -135,4.5 -162,-9"/>
+          <polygon points="-108,-9 -81,4.5 -108,18 -135,4.5"/>
+          <polygon points="-81,4.5 -54,18 -81,31.5 -108,18"/>
+          <polygon points="-54,18 -27,31.5 -54,45 -81,31.5"/>
+          <polygon points="-27,31.5 0,45 -27,58.5 -54,45"/>
+          <polygon points="0,45 27,58.5 0,72 -27,58.5"/>
+        </g>
+      </g>
+
+      <!-- resources (gems) -->
+      <circle cx="27" cy="-63" r="4.5" fill="#6affd4"/>
+      <circle cx="-27" cy="-22.5" r="4.5" fill="#6affd4"/>
+      <circle cx="81" cy="-22.5" r="4.5" fill="#febc2e"/>
+      <circle cx="-54" cy="18" r="4.5" fill="#febc2e"/>
+      <circle cx="0" cy="18" r="4.5" fill="#ff6a8e"/>
+      <circle cx="54" cy="4.5" r="4.5" fill="#6affd4"/>
+      <circle cx="-81" cy="-9" r="4.5" fill="#ff6a8e"/>
+
+      <!-- players (team1 purple, team2 pink) as little standing markers -->
+      <g>
+        <polygon points="0,-72 8,-56 -8,-56" fill="#7c6aff"/>
+        <circle cx="0" cy="-77" r="5" fill="#b9aeff"/>
+      </g>
+      <g>
+        <polygon points="-54,-9 -46,7 -62,7" fill="#ff6a8e"/>
+        <circle cx="-54" cy="-14" r="5" fill="#ffb8c9"/>
+      </g>
+      <g>
+        <polygon points="81,4.5 89,20.5 73,20.5" fill="#7c6aff"/>
+        <circle cx="81" cy="-0.5" r="5" fill="#b9aeff"/>
+      </g>
+      <g>
+        <polygon points="-27,31.5 -19,47.5 -35,47.5" fill="#ff6a8e"/>
+        <circle cx="-27" cy="26.5" r="5" fill="#ffb8c9"/>
+      </g>
+      <!-- incantation glow -->
+      <circle cx="0" cy="-72" r="26" fill="none" stroke="#6affd4" stroke-width="1.5" opacity="0.55"/>
+      <circle cx="0" cy="-72" r="17" fill="none" stroke="#6affd4" stroke-width="1" opacity="0.35"/>
+    </g>
+
+    <!-- HUD -->
+    <rect x="46" y="470" width="150" height="46" rx="8" fill="#12121f" stroke="#2a2a45"/>
+    <text x="60" y="490" font-size="12" fill="#6b6b8a">team1</text>
+    <text x="60" y="508" font-size="14" fill="#7c6aff">lvl 4 &#8226; 3 joueurs</text>
+    <rect x="210" y="470" width="150" height="46" rx="8" fill="#12121f" stroke="#2a2a45"/>
+    <text x="224" y="490" font-size="12" fill="#6b6b8a">team2</text>
+    <text x="224" y="508" font-size="14" fill="#ff6a8e">lvl 3 &#8226; 3 joueurs</text>
+    <text x="676" y="504" font-size="13" fill="#6affd4" text-anchor="end">tick 1420</text>
+  </g>
+</svg>
