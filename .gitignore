@@ -8,3 +8,6 @@
 # OS
 .DS_Store
 Thumbs.db
+
+# Clé API locale
+js/config.local.js

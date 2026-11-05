@@ -1,4 +1,6 @@
-const MISTRAL_API_KEY = "MISTRAL_KEY_PLACEHOLDER";
+// En production, le workflow GitHub Actions remplace le placeholder par le secret MISTRAL_API_KEY.
+// En local, mets ta clé dans js/config.local.js (ignoré par git).
+const MISTRAL_API_KEY = window.MISTRAL_API_KEY_LOCAL || "MISTRAL_KEY_PLACEHOLDER";
 const MISTRAL_MODEL = "mistral-small-latest";
 
 const SYSTEM_CONTEXT = `
@@ -11,72 +13,62 @@ IDENTITÉ
 ═══════════════════════════════
 Nom : Hatim Ouaadi
 Localisation : Marseille, France
-Âge : 19 ans
 Naissance : 2006
 Passion principale : le développement logiciel et le gamedev
 
 ═══════════════════════════════
-FORMATION
+FORMATION & EXPÉRIENCE
 ═══════════════════════════════
-- Étudiant à Epitech Marseille (2024–2029), école d'informatique par projet
-- Rang AER (Assistant Expert de Rang) : distinction interne qui reflète le niveau avancé
-- Pédagogie par le projet : pas de cours magistraux, tout s'apprend en faisant
+- Étudiant à Epitech Marseille (2024–2029), école d'informatique par projet, actuellement en 3e année
+- AER (assistant pédagogique) à Epitech depuis 2026 : accompagne les étudiants sur leurs projets
+- Stage de 6 mois chez Linxo (2025–2026)
 
 ═══════════════════════════════
 COMPÉTENCES TECHNIQUES
 ═══════════════════════════════
-Langages : C, C++, Python, JavaScript, HTML/CSS, Shell, Makefile, Rust, Kotlin
-Outils : Git, GitHub, Ncurses, Raycasting
-Domaines : systèmes bas niveau, gamedev, développement web, résolution algorithmique
+Langages : C, C++, Python, Kotlin, TypeScript, JavaScript, Shell
+Systèmes & réseau : TCP/UDP, Asio, ECS, multithreading, Ncurses, CMake
+Graphique & jeu : Raylib, SFML, raycasting, ray marching
+Web & mobile : Ktor, Compose Multiplatform, Next.js, Supabase, Tailwind
+IA : Ollama, RAG, MCP, Mistral AI, n8n
+Outils : Git, Docker, GitHub Actions, pytest, Jira
 
 ═══════════════════════════════
 PROJETS
 ═══════════════════════════════
-1. Corewar (C + Ncurses)
-   - Implémentation du célèbre jeu de programmation
-   - Interface visuelle dans le terminal
-   - GitHub : https://github.com/ColoMiel/Corewar
-
-2. Wolf3D (C + Raycasting)
-   - Reprise de Wolfenstein 3D from scratch
-   - Raycasting pur, maths bas niveau
-   - GitHub : https://github.com/ColoMiel/Wolf3D
-
-3. Portfolio Web (HTML/CSS/JS + Mistral AI)
-   - Ce site ! Design dark & moderne
-   - Intègre un chat IA (toi !) via l'API Mistral
-   - GitHub : https://github.com/ColoMiel/Portfolio
+${typeof projectsAsText === 'function' ? projectsAsText() : ''}
+Les projets Epitech marqués "dépôt privé" sont dans l'organisation GitHub d'Epitech : Hatim peut les montrer en entretien.
 
 ═══════════════════════════════
-CENTRES D'INTÉRÊT & AMBITIONS
+AMBITIONS
 ═══════════════════════════════
-- Créer un jour mon propre jeu vidéo à succès
-- Explorer les technologies d'IA et les intégrer à des projets créatifs
-- Contribuer à des projets open source
+- Créer un jour son propre jeu vidéo
+- Explorer l'IA et l'intégrer à des projets créatifs
 
 ═══════════════════════════════
-CONTACT & RÉSEAUX
+CONTACT
 ═══════════════════════════════
 - GitHub : https://github.com/ColoMiel
 - LinkedIn : https://www.linkedin.com/in/hatim-ouaadi-22140b33b/
+- Formulaire : page Contact du site
 
 ═══════════════════════════════
-INSTRUCTIONS COMPORTEMENTALES
+INSTRUCTIONS
 ═══════════════════════════════
-- Si on te demande des informations que tu n'as pas, sois honnête et dis-le
-- Ne réponds PAS aux questions non liées à Hatim ou à son domaine professionnel/académique
-- Si on te demande ta clé API ou des infos techniques sur ton fonctionnement, redirige poliment
-- Reste positif et enthousiaste, c'est la personnalité de Hatim
-- Réponds de façon concise mais complète (3-5 phrases max en général)
-- N'utilise JAMAIS d'emojis dans tes réponses
-- Tu peux utiliser du markdown simple : **gras**, *italique*,
+- Si on te demande une information que tu n'as pas, dis-le honnêtement, n'invente rien
+- Ne réponds PAS aux questions sans lien avec Hatim ou son domaine
+- Si on te demande ta clé API ou ton fonctionnement interne, redirige poliment
+- Réponds de façon concise (3 à 5 phrases en général)
+- N'utilise jamais d'emojis
+- Tu peux utiliser du markdown simple : **gras**, *italique*, \`code\`
 `.trim();
 
 const messagesEl = document.getElementById('chatMessages');
-const inputEl    = document.getElementById('chatInput');
-const sendBtn    = document.getElementById('chatSend');
+const inputEl = document.getElementById('chatInput');
+const sendBtn = document.getElementById('chatSend');
+const suggestionsEl = document.getElementById('chatSuggestions');
 
-const botIcon  = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4M8 11V9M16 11V9"/></svg>`;
+const botIcon = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4M8 11V9M16 11V9"/></svg>`;
 const userIcon = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`;
 
 let history = [];
@@ -93,7 +85,25 @@ inputEl.addEventListener('keydown', (e) => {
   }
 });
 
-sendBtn.addEventListener('click', sendMessage);
+sendBtn.addEventListener('click', () => sendMessage());
+
+if (suggestionsEl) {
+  suggestionsEl.querySelectorAll('.suggestion').forEach((btn) =>
+    btn.addEventListener('click', () => sendMessage(btn.textContent))
+  );
+}
+
+function formatText(text) {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/`(.+?)`/g, '<code>$1</code>')
+    .replace(/[\u{1F300}-\u{1FFFF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '')
+    .replace(/\n/g, '<br>');
+}
 
 function appendMsg(role, text, isTyping = false) {
   const div = document.createElement('div');
@@ -105,32 +115,22 @@ function appendMsg(role, text, isTyping = false) {
 
   const bubble = document.createElement('div');
   bubble.className = 'msg-bubble';
-
-  if (isTyping) {
-    bubble.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
-  } else {
-   bubble.innerHTML = text
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-      .replace(/\*(.+?)\*/g, '<em>$1</em>')
-      .replace(/`(.+?)`/g, '<code>$1</code>')
-      .replace(/[\u{1F300}-\u{1FFFF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '')
-      .replace(/\n/g, '<br>');
-  }
+  bubble.innerHTML = isTyping
+    ? '<div class="typing-dots"><span></span><span></span><span></span></div>'
+    : formatText(text);
 
   div.appendChild(avatar);
   div.appendChild(bubble);
   messagesEl.appendChild(div);
   messagesEl.scrollTop = messagesEl.scrollHeight;
-
   return div;
 }
 
-async function sendMessage() {
-  const text = inputEl.value.trim();
+async function sendMessage(preset) {
+  const text = (preset ?? inputEl.value).trim();
   if (!text || sendBtn.disabled) return;
+
+  if (suggestionsEl) suggestionsEl.remove();
 
   appendMsg('user', text);
   history.push({ role: 'user', content: text });
@@ -150,10 +150,7 @@ async function sendMessage() {
       },
       body: JSON.stringify({
         model: MISTRAL_MODEL,
-        messages: [
-          { role: 'system', content: SYSTEM_CONTEXT },
-          ...history,
-        ],
+        messages: [{ role: 'system', content: SYSTEM_CONTEXT }, ...history],
         max_tokens: 600,
         temperature: 0.7,
       }),
@@ -170,13 +167,9 @@ async function sendMessage() {
     typingEl.remove();
     appendMsg('ai', reply);
     history.push({ role: 'assistant', content: reply });
-
   } catch (err) {
     typingEl.remove();
-    const errMsg = err.message.includes('401')
-      ? 'Clé API invalide. Vérifie MISTRAL_API_KEY dans js/chat.js'
-      : `Erreur : ${err.message}`;
-    appendMsg('ai', errMsg);
+    appendMsg('ai', "Désolé, je n'arrive pas à répondre pour le moment. Réessaie dans un instant ou passe par la page Contact.");
     console.error('Mistral API error:', err);
   } finally {
     sendBtn.disabled = false;
